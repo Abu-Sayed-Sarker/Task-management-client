@@ -1,8 +1,9 @@
+import TaskList from "../Components/TaskList";
 import { useAuth } from "../Provider/AuthProvider";
 import { FaGoogle } from "react-icons/fa";
 
 const Home = () => {
-    const { user, signInWithGoogle, logOut } = useAuth();
+    const { user, signInWithGoogle } = useAuth();
 
     if (!user) {
         return (
@@ -30,16 +31,11 @@ const Home = () => {
                 </div>
 
                 {/* Task List Component */}
-
+                <TaskList></TaskList>
 
                 {/* Logout Button */}
                 <div className="flex justify-center mt-6">
-                    <button
-                        onClick={logOut}
-                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
-                    >
-                        Logout
-                    </button>
+
                 </div>
             </div>
         </div>

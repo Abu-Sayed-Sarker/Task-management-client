@@ -20,7 +20,7 @@ const TaskList = () => {
     const { isLoading, error, data: tasks = [] } = useQuery({
         queryKey: ["tasks"],
         queryFn: async () => {
-            const response = await axios.get("http://localhost:3000/tasks"); // No Authorization header
+            const response = await axios.get("http://localhost:3000/tasks");
             return Array.isArray(response.data) ? response.data : [];
         },
     });
@@ -228,7 +228,7 @@ const SortableTask = ({ task, deleteTaskMutation, setIsEditing, setEditTask }) =
     const { setNodeRef, transform, transition } = useSortable({ id: task._id });
 
     const style = {
-        transform: CSS.Transform.toString(transform),
+        transform,
         transition,
     };
 
